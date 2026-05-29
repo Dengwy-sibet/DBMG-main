@@ -97,7 +97,7 @@ class Trainer:
         self.criterion_cls = nn.BCEWithLogitsLoss().to(self.main_device)                        # Binary Cross Entropy for Classification
         self.criterion_seg = DiceFocalLoss().to(self.main_device)                               # Hybrid Dice-Focal Loss for Segmentation
         # Foundation Model-based Perceptual Loss (CONCH)
-        self.criterion_per = CONCHPerceptualLoss(hf_auth_token="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", device=self.main_device)
+        self.criterion_per = CONCHPerceptualLoss(hf_auth_token="", device=self.main_device)
 
         self.batch_size = config['training']['batch_size']  
 
@@ -128,8 +128,9 @@ class Trainer:
             world_size=self.world_size,
             num_workers=self.num_workers
         )
-
-        self.csv_path = config['output']['csv_path']
+        
+        self.save_dir = config['output']['save_dir']
+        self.csv_path = config['valid']['csv_path']
         self.save_dir = config['output']['save_dir']
         self.val_output_dir = config['output']['valid_output_dir']
 

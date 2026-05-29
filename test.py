@@ -19,8 +19,8 @@ if __name__ == "__main__":
     model = load_savemodel(save_path, base_model, device_ids)
 
     test_loader, test_sampler = get_loader(
-        root_A='data/HER2match_V1/HE/test',
-        root_B='data/HER2match_V1/IHC/test',
+        root_A=config['data']['test_root_A'],
+        root_B=config['data']['test_root_B'],
         mask_root_B=None,
         img_size=img_size,
         batch_size=1,

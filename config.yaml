@@ -1,9 +1,9 @@
 data:
-  train_root_A: data/HER2match-v1//HE/train
-  train_root_B: data/HER2match-v1/IHC/train
-  valid_root_A: data/HER2match-v1/HE/val
-  valid_root_B: data/HER2match-v1/IHC/val
-  train_mask_root_B: data/HER2match-v1/label/mask
+  train_root_A: ./data/HER2match/HE/train
+  train_root_B: ./data/HER2match/IHC/train
+  valid_root_A: ./data/HER2match/HE/val
+  valid_root_B: ./data/HER2match/IHC/val
+  train_mask_root_B: ./data/HER2match/mask
   num_workers: 16
 
 training:
@@ -23,19 +23,20 @@ training:
   decay_epochs: 90
   num_epochs: 200
 
+  save_dir: ./output/checkpoints
+
   val_freq: 10
   load_module: False
-  checkpoint_path: saved_models_v2/checkpoint_epoch33---Gloss_4.765747392321208---G_lr0.0001.pth.tar
+  checkpoint_path: ./checkpoints
 
 testing:
   image_size: 1024
   currentepoch: 156
-  test_root_A: data/HER2match-v1//HE/test
-  test_root_B: data/HER2match-v1//IHC/test
-  save_path: ./
-  test_output_dir: 
+  test_root_A: ./data/HER2match/HE/test
+  test_root_B: ./data/HER2match/IHC/test
+  save_path: ./checkpoints/
+  test_output_dir: ./inference
 
-output:
-  save_dir: output/saved_models/no_region
-  valid_output_dir: output/valid_output/no_region
-  csv_path: output/valid/no_region/metrics.csv
+validing:
+  valid_output_dir: ./output/valid_output
+  csv_path: ./output/valid/metrics.csv
