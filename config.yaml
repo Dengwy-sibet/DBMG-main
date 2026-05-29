@@ -1,0 +1,41 @@
+data:
+  train_root_A: data/HER2match-v1//HE/train
+  train_root_B: data/HER2match-v1/IHC/train
+  valid_root_A: data/HER2match-v1/HE/val
+  valid_root_B: data/HER2match-v1/IHC/val
+  train_mask_root_B: data/HER2match-v1/label/mask
+  num_workers: 16
+
+training:
+  world_size: 4
+  batch_size: 3
+  lr: 0.0001
+  img_size: 1024
+
+  lambda_l1: 10.0
+  lambda_stain: 25.0
+  lambda_cls: 2.0
+  lambda_seg: 2.0
+  lambda_gan: 1.0
+  lambda_per: 0.5
+
+  warm_epochs: 10
+  decay_epochs: 90
+  num_epochs: 200
+
+  val_freq: 10
+  load_module: False
+  checkpoint_path: saved_models_v2/checkpoint_epoch33---Gloss_4.765747392321208---G_lr0.0001.pth.tar
+
+testing:
+  image_size: 1024
+  currentepoch: 156
+  test_root_A: data/HER2match-v1//HE/test
+  test_root_B: data/HER2match-v1//IHC/test
+  save_path: ./
+  test_output_dir: 
+
+output:
+  save_dir: output/saved_models/no_region
+  valid_output_dir: output/valid_output/no_region
+  csv_path: output/valid/no_region/metrics.csv
