@@ -23,6 +23,7 @@ This project is developed based on the PyTorch framework. Please visit the offic
 
 To use the CONCH weights, please first ensure that Git is installed from https://git-scm.com/install, and then apply for the weights according to the instructions at https://huggingface.co/MahmoodLab/CONCH.
 
+
 ### Prepare the HER2match Dataset
 
 1. Download Dataset:
@@ -37,11 +38,14 @@ unzip HER2match_tiles.zip -d HER2match_tiles
 ```
 
 2. Create mask folder:
+
 After successfully downloading the HER2match dataset, please execute the following command to generate mask files to the specified path:
 
 ```bash
 python data/mask.py
 ```
+
+Due to operational variations and environmental factors, there exists certain variability in the OD value distribution across different images. Therefore, after running the folder mode with preset values, please use the single-image mode to fine-tune and correct masks that exhibit clearly unreasonable divisions—such as significant loss of reticular structural details or presence of isolated staining artifacts (Concentrated predominantly in 3+ scored samples.).
 
 3. Full data directory structure:
 
@@ -94,6 +98,7 @@ All other parameter settings should remain consistent with your task.
 python train.py
 ```
 
+
 ### Test Models
 1. Modify the `config.yaml` file in the following parameters to ensure the program runs correctly:
 
@@ -106,6 +111,7 @@ All other parameter settings should remain consistent with your task.
 ```bash
 python test.py
 ```
+
 
 ### Eval Models
 
