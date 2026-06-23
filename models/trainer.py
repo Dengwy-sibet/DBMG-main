@@ -6,7 +6,7 @@ import os
 import random
 import torchvision.utils as vutils
 from tqdm import tqdm
-from data.dataset import get_loader
+from data.dataloder import get_loader
 from models.network import Generator, Discriminator
 from torch.optim.lr_scheduler import LinearLR, SequentialLR, ConstantLR
 from utils import denorm, save_checkpoint, load_checkpoint, get_parameter_groups, log_metrics_to_csv

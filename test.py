@@ -1,4 +1,4 @@
-from data.dataset import get_loader
+from data.dataloder import get_loader
 from utils import load_savemodel, generate_and_save
 from models.network import Generator
 import yaml
