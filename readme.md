@@ -44,6 +44,8 @@ python data/mask.py
 ```
 
 3. Full data directory structure:
+
+```bash
 data/
 ├── dataloder.py                 # Data loading and preprocessing
 ├── mask.py                      # Mask generation
@@ -65,9 +67,9 @@ data/
     │   └── test/   
     │       └── ...               
     │
-    └── mask/                    # Path for saving the generated mask files.
-        └── ...              
-
+    └── mask/                    # Path for saving the generated mask files
+        └── ...       
+```
 
 4. Modify the `config.yaml` file by inserting the full path to the dataset in the following parameters:
 - train_dataroot_A/B
